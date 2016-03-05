@@ -1,4 +1,3 @@
-console.log('aaaaaaiiiiiii');
 var showTutorial = {
 	init: function() {
 		this.bindEvent();
