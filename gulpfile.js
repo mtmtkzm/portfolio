@@ -1,6 +1,5 @@
 var gulp = require('gulp');
 var plumber = require('gulp-plumber'); // エラー時に停止処理をしない
-
 // SERVER
 var browser = require('browser-sync');
 gulp.task('server', function() {
