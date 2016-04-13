@@ -180,11 +180,44 @@ var scrollFadein = {
 	}
 }
 
+
+var sendLetter = {
+	init: function () {
+		this.bindEvent();
+	},
+	bindEvent: function () {
+		var _self = this;
+		$('#js-send').on('click', function () {
+			_self.sendLetter();
+		});
+	},
+	sendLetter: function () {
+		var text = $('#js-letter').val();
+		if(text != '' && window.confirm('この内容で送信してよろしいですか？\n----\n'+text+'\n----')){
+			var url = 'https://slack.com/api/chat.postMessage';
+			var data = {
+				token: 'xoxp-5132180852-5132180854-26900319184-99728c69b4',
+				channel: '#letter_box',
+				username: 'Postal worker',
+				text: text
+			};
+			$.ajax({
+				type: 'GET',
+				url: url,
+				data: data
+			});
+			$('#js-letter').val('送信されました。ありがとうございました。');
+			alert('ありがとうございました！');
+		}
+	}
+}
+
 $(function(){
-	showTutorial.init();
+	// showTutorial.init();
 	accordionChronology.init();
 	introductionHover.init();
 	showUserGuide.init();
 	dispatchArrow.init();
 	scrollFadein.init();
+	sendLetter.init();
 });

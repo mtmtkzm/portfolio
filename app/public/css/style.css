@@ -178,7 +178,7 @@ main {
 }
 
 footer {
-  padding: 30px 0 8px;
+  padding: 40px 0 12px;
   width: 980px;
   margin: 0 auto;
   color: #eeeeee;
@@ -259,12 +259,81 @@ footer .social-list li.mail a {
   background-image: url("../images/common/mail.png");
 }
 
+footer .letter-text {
+  line-height: 15px;
+  font-weight: normal;
+}
+
+@media only screen and (max-width: 414px) {
+  footer .letter-text {
+    display: inline-block;
+    margin-top: 20px;
+  }
+}
+
+footer .letter-box {
+  margin: 0;
+  padding: 5px;
+  border: 0;
+  margin-top: 10px;
+  width: 300px;
+  height: 80px;
+  max-width: 300px;
+  min-width: 300px;
+}
+
+footer .letter-button {
+  display: block;
+  color: #222;
+  text-align: center;
+  line-height: 20px;
+  width: 310px;
+  height: 20px;
+  background-color: #eeeeee;
+  cursor: pointer;
+  transition: opacity .3s;
+}
+
+footer .letter-button:hover {
+  opacity: .7;
+}
+
+@media only screen and (max-width: 414px) {
+  footer .letter-button {
+    margin: 0 auto;
+  }
+}
+
 footer .copyright {
   text-align: right;
+  margin-top: 16px;
 }
 
 @media only screen and (max-width: 414px) {
   footer .copyright {
+    float: none;
+    text-align: center;
+  }
+}
+
+footer .footer-left-box {
+  float: left;
+}
+
+@media only screen and (max-width: 414px) {
+  footer .footer-left-box {
+    float: none;
+    text-align: center;
+  }
+}
+
+footer .footer-right-box {
+  float: right;
+}
+
+@media only screen and (max-width: 414px) {
+  footer .footer-right-box {
+    float: none;
     text-align: center;
   }
 }
