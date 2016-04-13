@@ -1,21 +1,22 @@
-
 {
   "name": "mtmtkzm",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "主にEJSとSASSを含むGulpタスクテンプレート。",
+  "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "mtmtkzm",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.11.0",
+    "browser-sync": "^2.12.2",
     "del": "^2.2.0",
-    "gulp": "^3.9.0",
+    "gulp": "^3.9.1",
     "gulp-combine-media-queries": "^0.2.0",
-    "gulp-pleeease": "^2.0.2",
-    "gulp-plumber": "^1.0.1",
+    "gulp-ejs": "^1.2.2",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^2.2.0",
+    "gulp-watch": "^4.3.5",
     "run-sequence": "^1.1.5"
   }
 }

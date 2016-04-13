@@ -1,80 +1,111 @@
 var gulp = require('gulp');
-var plumber = require('gulp-plumber'); // エラー時に停止処理をしない
-// SERVER
+var plumber = require('gulp-plumber');
+var runSequence = require('run-sequence');
+
+/* Server
+****************************** */
 var browser = require('browser-sync');
 gulp.task('server', function() {
-    browser({
-        server: {
-            baseDir: './app/public/'
-        }
-    });
+	browser({
+		server: {
+			baseDir: './app/public/'
+		}
+	});
 });
 
-// CLEAN
+/* Clean
+****************************** */
 var del = require('del');
-gulp.task('clean', function () {
-    del(['app/public/']);
+gulp.task('clean', function() {
+	del(['./app/public/']);
 });
 
-// SASS
+/* Sass
+****************************** */
 var sass = require('gulp-sass');
-gulp.task('sass', function(){
-    gulp.src(['./app/source/scss/**/*.scss', '!'+'./app/source/scss/**/_*.scss'])
-        .pipe(plumber())
-        .pipe(sass())
-        .pipe(sass({outputStyle: 'expanded'}))
-        .pipe(gulp.dest('./app/public/css'))
-        .pipe(browser.reload({stream:true}))
+gulp.task('sass', function() {
+	gulp.src(['./app/source/scss/**/*.scss', '!./app/source/scss/**/_*.scss'])
+		.pipe(plumber())
+		.pipe(sass())
+		.pipe(sass({outputStyle: 'expanded'}))
+		.pipe(gulp.dest('./app/public/css'))
+		.pipe(browser.reload({stream:true}))
 });
 
-// MEDIA QUERY
+/* Combine MediaQuery
+****************************** */
 var cmq = require('gulp-combine-media-queries');
-gulp.task('cmq', function () {
-    gulp.src('./app/public/css/*.css')
-        .pipe(plumber())
-        .pipe(cmq({
-            log: true
-        }))
-    .pipe(gulp.dest('./app/public/css'));
+gulp.task('cmq', function() {
+	gulp.src('./app/public/css/*.css')
+		.pipe(plumber())
+		.pipe(cmq({
+			log: true
+		}))
+		.pipe(gulp.dest('./app/public/css'));
 });
 
-// EJS
+/* Ejs
+****************************** */
 var ejs = require('gulp-ejs');
 gulp.task('ejs', function() {
-    gulp.src(['./app/source/ejs/**/*.ejs','!' + './app/source/ejs/**/_*.ejs'])
-        .pipe(plumber())
-        .pipe(ejs())
-        .pipe(gulp.dest('./app/public'))
-        .pipe(browser.reload({stream:true}))
+	gulp.src(['./app/source/ejs/**/*.ejs','!./app/source/ejs/**/_*.ejs'])
+		.pipe(plumber())
+		.pipe(ejs())
+		.pipe(gulp.dest('./app/public'))
+		.pipe(browser.reload({stream:true}))
 });
 
-// COPY
-gulp.task('copy', function(){
-    gulp.src('./app/source/scss/**/*.css').pipe(plumber()).pipe(gulp.dest('./app/public/css/')).pipe(browser.reload({stream:true}));
-    gulp.src('./app/source/js/**/*.js').pipe(plumber()).pipe(gulp.dest('./app/public/js')).pipe(browser.reload({stream:true}));
-    gulp.src('./app/source/images/**/*.{png,jpg,gif}').pipe(plumber()).pipe(gulp.dest('./app/public/images')).pipe(browser.reload({stream:true}));
-    gulp.src('./app/source/images/**/').pipe(plumber()).pipe(gulp.dest('./app/public/images')).pipe(browser.reload({stream:true}));
-    gulp.src('./app/source/ejs/**/*.html').pipe(plumber()).pipe(gulp.dest('./app/public/')).pipe(browser.reload({stream:true}));
-    gulp.src('./app/source/fonts/**/*.html').pipe(plumber()).pipe(gulp.dest('./app/public/fonts')).pipe(browser.reload({stream:true}));
+
+// 複製タスクに関わるパス
+var copyPaths = [
+	{
+		from: './app/source/images/**/*',
+		to: './app/public/images'
+	}, {
+		from: './app/source/fonts/**/*',
+		to: './app/public/fonts'
+	}, {
+		from: './app/source/js/**/*',
+		to: './app/public/js'
+	}, {
+		from: './app/source/plugins/**/*',
+		to: './app/public/plugins'
+	}
+];
+
+/* Copy
+****************************** */
+gulp.task('copy', function() {
+	for(var i=0; i<copyPaths.length; i++){
+		gulp.src(copyPaths[i].from).pipe(gulp.dest(copyPaths[i].to));
+	}
 });
 
-// BUILD
-var runSequence = require('run-sequence');  
-gulp.task('build', function(callback){
-    return runSequence(
-        'clean',
-        ['ejs', 'sass', 'copy'],
-        callback
-    );
+/* Watch
+****************************** */
+var watch = require('gulp-watch');
+gulp.task('watch', function() {
+	watch(['./app/source/scss/**/*.scss'], function(event){
+		gulp.start('sass');
+	});
+	watch(['./app/source/ejs/**/*.ejs'], function(event){
+		gulp.start('ejs');
+	});
+	// 複製タスクはループを回す
+	for(var i=0; i<copyPaths.length; i++){
+		watch(copyPaths[i].from, function(event){
+			gulp.start('copy');
+		});
+	}
 });
 
-// DEFAULT
-gulp.task('default', ['server'], function(){
-    gulp.watch('./app/source/scss/**/*.scss', ['sass']);
-    gulp.watch('./app/source/css/**/*.css', ['copy']);
-    gulp.watch('./app/source/ejs/**/*.ejs', ['ejs']);
-    gulp.watch('./app/source/ejs/**/', ['ejs']);
-    gulp.watch('./app/source/ejs/**/*.html', ['copy']);
-    gulp.watch('./app/source/images/**/*.{png,jpg,gif}', ['copy']);
-    gulp.watch('./app/source/js/**/*.js', ['copy']); 
+gulp.task('build', ['clean'], function (callback) {
+	return runSequence(['ejs', 'sass', 'copy'], callback);
+});
+
+
+/* Default
+****************************** */
+gulp.task('default', function() {
+	return runSequence(['server'],['watch']);
 });
