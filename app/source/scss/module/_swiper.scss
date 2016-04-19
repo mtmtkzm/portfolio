@@ -1,0 +1,86 @@
+.swiper-container {
+	width: 100%;
+	height: 100%;
+	background-color: $white;
+	.swiper-slide {
+		padding: 60px 0 90px;
+	}
+	.swiper-button {
+		width: auto;
+		font-size: 1.3rem;
+		background-image: none;
+		position: fixed;
+		top: 125px;
+		padding: 0 0 0 16px;
+		color: $blue;
+		transition: all 0.3s;
+		.swiper-button-description {
+			writing-mode: vertical-rl;
+			height: 350px;
+			margin-top: 28px;
+		}
+		&:before,
+		&:after {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			margin: auto;
+			content: "";
+		}
+		&.swiper-button-disabled {
+			opacity: 0;
+		}
+		@include media(tab) {
+			position: absolute;
+			top: 45px;
+		}
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+	.swiper-button-next {
+		right: -32px;
+		@include media(tab) {
+			right: 45px;
+		}
+		@include media(sp) {
+			right: 33px;
+		}
+		&:before {
+			left: 4px;
+			width: 80px;
+			height: 2px;
+			background-color: $blue;
+		}
+		&:after {
+			left: 72px;
+			width: 10px;
+			height: 10px;
+			border-top: 2px solid $blue;
+			-webkit-transform: rotate(45deg);
+			transform: rotate(45deg);
+		}
+	}
+	.swiper-button-prev {
+		left: 18px;
+		padding-left: 25px;
+		@include media(sp) {
+			left: 0;
+		}
+		&:before {
+			left: 4px;
+			width: 85px;
+			height: 2px;
+			background: $blue;
+		}
+		&:after {
+			left: 6px;
+			width: 10px;
+			height: 10px;
+			border-top: 2px solid $blue;
+			-webkit-transform: rotate(-45deg);
+			transform: rotate(-45deg);
+		}
+	}
+}

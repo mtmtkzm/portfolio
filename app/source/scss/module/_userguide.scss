@@ -1,0 +1,83 @@
+.userguide {
+	$ug-arrow-h: 12px;
+	$ug-arrow-w: 6px;
+	.userguide-sp {
+		width: 80px;
+		position: fixed;
+		z-index: 11;
+		top: 30%;
+		left: 4%;
+		@include media(pc) {
+			display: none;
+		}
+		@include media(tab) {
+			display: block;
+		}
+	}
+	.userguide-pc {
+		position: fixed;
+		bottom: 45px;
+		right: 50px;
+		z-index: 11;
+		display: none;
+		@include media(tab) {
+			display: none;
+		}
+	}
+	.ug-arrow {
+		width: 49px;
+		height: 27px;
+		border: 1px solid $blue;
+		background-color: $white;
+		border-radius: 5px;
+		&::before {
+			content: "";
+			width: 0;
+			height: 0;
+			display: block;
+		}
+	}
+	.ug-upper {
+		margin: 1px auto;
+	}
+	.ug-lower {
+		float: left;
+		margin: 1px;
+	}
+	.ug-top {
+		&::before {
+			border-bottom: $ug-arrow-h solid $blue;
+			border-top: $ug-arrow-w solid transparent;
+			border-right: $ug-arrow-w solid transparent;
+			border-left: $ug-arrow-w solid transparent;
+			margin: 1px auto 0;
+		}
+	}
+	.ug-bottom {
+		&::before {
+			border-bottom: $ug-arrow-w solid transparent;
+			border-top: $ug-arrow-h solid $blue;
+			border-right: $ug-arrow-w solid transparent;
+			border-left: $ug-arrow-w solid transparent;
+			margin: 9px auto 0;
+		}
+	}
+	.ug-left {
+		&::before {
+			border-bottom: $ug-arrow-w solid transparent;
+			border-top: $ug-arrow-w solid transparent;
+			border-right: $ug-arrow-h solid $blue;
+			border-left: $ug-arrow-w solid transparent;
+			margin: 8px 0 0 12px;
+		}
+	}
+	.ug-right {
+		&::before {
+			border-bottom: $ug-arrow-w solid transparent;
+			border-top: $ug-arrow-w solid transparent;
+			border-right: $ug-arrow-w solid transparent;
+			border-left: $ug-arrow-h solid $blue;
+			margin: 8px 0 0 20px;
+		}
+	}
+}

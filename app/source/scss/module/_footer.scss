@@ -1,0 +1,121 @@
+footer {
+	padding: 40px 0 12px;
+	width: $full-size;
+	margin: 0 auto;
+	color: $white;
+	@include media(tab) {
+		width: $tab-w;
+	}
+	.logo-type {
+		font-size: 2.4rem;
+		margin: 0 0 5px 20px;
+		a {
+			text-decoration: none !important;
+		}
+		@include media(sp) {
+			margin-left: 0;
+		}
+	}
+	.social {
+		text-align: left;
+		@include media(sp) {
+			text-align: center;
+			margin-bottom: 20px;
+		}
+	}
+	.social-list {
+		li {
+			display: inline-block;
+			padding: 0 10px;
+			height: 28px;
+			+ li {
+				border-left: 1px solid $white;
+				box-shadow: -1px 0 0 $shadow;
+			}
+			a {
+				padding: 10px;
+				display: block;
+				transition: all 0.3s;
+				background: top center no-repeat;
+				background-size: 50%;
+				&:hover {
+					opacity: 0.8;
+				}
+			}
+			&.facebook a {
+				width: 12px;
+				height: 22px;
+				background-image: url('../images/common/fb.png');
+			}
+			&.twitter a {
+				width: 33px;
+				height: 26px;
+				margin-top: 5px;
+				background-image: url('../images/common/tw.png');
+			}
+			&.mail a {
+				width: 37px;
+				height: 28px;
+				margin-top: 5px;
+				background-image: url('../images/common/mail.png');
+			}
+		}
+	}
+	.letter-text {
+		line-height: 15px;
+		font-weight: normal;
+		@include media(sp) {
+			display: inline-block;
+			margin-top: 20px;
+		}
+	}
+	.letter-box {
+		margin: 0;
+		padding: 5px;
+		border: 0;
+		margin-top: 10px;
+		width: 300px;
+		height: 80px;
+		max-width: 300px;
+		min-width: 300px;
+	}
+	.letter-button {
+		display: block;
+		color: $black;
+		text-align: center;
+		line-height: 20px;
+		width: 310px;
+		height: 20px;
+		background-color: $white;
+		cursor: pointer;
+		transition: opacity .3s;
+		&:hover {
+			opacity: .7;
+		}
+		@include media(sp) {
+			margin: 0 auto;
+		}
+	}
+	.copyright {
+		text-align: right;
+		margin-top: 16px;
+		@include media(sp) {
+			float: none;
+			text-align: center;
+		}
+	}
+	.footer-left-box {
+		float: left;
+		@include media(sp) {
+			float: none;
+			text-align: center;
+		}
+	}
+	.footer-right-box {
+		float: right;
+		@include media(sp) {
+			float: none;
+			text-align: center;
+		}
+	}
+}

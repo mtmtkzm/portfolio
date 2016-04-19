@@ -1,0 +1,29 @@
+html {
+	font-size: $base-font-size;	
+}
+
+body {
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+	font-family: $base-font-family;
+	font-weight: 600;
+	color: $base-font-color;
+	background-color: $base-background-color;
+	letter-spacing: $base-letter-spacing;
+	line-height: $base-line-height;
+}
+
+a {
+	text-decoration: underline;
+	color: inherit;
+	word-break: break-all;
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+main {
+	display: block;
+	background-color: $white;
+	font-size: 1.3rem;
+}
