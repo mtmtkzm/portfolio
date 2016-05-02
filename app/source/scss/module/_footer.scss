@@ -6,6 +6,9 @@ footer {
 	@include media(tab) {
 		width: $tab-w;
 	}
+	@include media(sp) {
+		width: $sp-w;
+	}
 	.logo-type {
 		font-size: 2.4rem;
 		margin: 0 0 5px 20px;
@@ -74,17 +77,15 @@ footer {
 		padding: 5px;
 		border: 0;
 		margin-top: 10px;
-		width: 300px;
+		width: 280px;
 		height: 80px;
-		max-width: 300px;
-		min-width: 300px;
 	}
 	.letter-button {
 		display: block;
 		color: $black;
 		text-align: center;
 		line-height: 20px;
-		width: 310px;
+		width: 290px;
 		height: 20px;
 		background-color: $white;
 		cursor: pointer;
