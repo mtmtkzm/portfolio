@@ -50,6 +50,7 @@ html {
 
 body {
   -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
   text-size-adjust: 100%;
   font-family: "Noto Sans Japanese", serif;
   font-weight: 600;
@@ -121,8 +122,11 @@ main {
 }
 
 .js-fadeInUp {
+  -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
+  -webkit-animation-duration: 0.8s;
   animation-duration: 0.8s;
+  -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp;
   visibility: visible;
 }
@@ -138,10 +142,12 @@ main {
 @-webkit-keyframes fadeInUp {
   0% {
     opacity: 0;
+    -webkit-transform: translateY(24px);
     transform: translateY(24px);
   }
   100% {
     opacity: 1;
+    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
@@ -149,10 +155,12 @@ main {
 @keyframes fadeInUp {
   0% {
     opacity: 0;
+    -webkit-transform: translateY(24px);
     transform: translateY(24px);
   }
   100% {
     opacity: 1;
+    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
@@ -407,7 +415,10 @@ header {
 }
 
 .swiper-container .swiper-button .swiper-button-description {
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: tb-rl;
   writing-mode: vertical-rl;
+  display: block;
   height: 350px;
   margin-top: 28px;
 }
@@ -437,7 +448,7 @@ header {
 }
 
 .swiper-container .swiper-button-next {
-  right: -32px;
+  right: 40px;
 }
 
 @media only screen and (max-width: 1024px) {
