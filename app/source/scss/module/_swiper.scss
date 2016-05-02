@@ -16,6 +16,7 @@
 		transition: all 0.3s;
 		.swiper-button-description {
 			writing-mode: vertical-rl;
+			display: block;
 			height: 350px;
 			margin-top: 28px;
 		}
@@ -40,7 +41,7 @@
 		}
 	}
 	.swiper-button-next {
-		right: -32px;
+		right: 40px;
 		@include media(tab) {
 			right: 45px;
 		}
