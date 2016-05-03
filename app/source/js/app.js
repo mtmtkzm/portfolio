@@ -4,29 +4,28 @@ var showTutorial = {
 	},
 	bindEvent: function() {
 		var self = this;
+		var period = 1; // 有効期限日数
+
 		if($.cookie('access') == undefined) {
-			self.saveCookie();
+			$.cookie('access', 'on', { expires: period });
 			$('body').addClass('is-first');
 			self.tutorial();
 		} else {
 			$('body').removeClass('is-first');
 		}
-
 		// デバック用 ヘッダークリックでcookie削除
 		$('header').on('click', function() {
 			self.removeCookie();
 		})
-	},
-	saveCookie: function() {
-		var period = 1; // 有効期限日数
-		$.cookie('access', 'on', { expires: period });
 	},
 	removeCookie: function() {
 		$.removeCookie('access');
 	},
 	tutorial: function() {
 		setTimeout(function(){
-			// チュートリアル終わり？
+			$('#tutorial').fadeOut().queue(function() {
+				$('body').removeClass('is-first');
+			});
 		}, 2000);
 	}
 }
