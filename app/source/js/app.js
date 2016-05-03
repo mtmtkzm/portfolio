@@ -25,7 +25,6 @@ var showTutorial = {
 		$.removeCookie('access');
 	},
 	tutorial: function() {
-		console.log('チュートリアル');
 		setTimeout(function(){
 			// チュートリアル終わり？
 		}, 2000);
@@ -78,52 +77,6 @@ var accordionChronology = {
 	},
 	open: function($target){
 		$target.nextAll('.chronology-detail').slideToggle();
-		// this.showBg($target);
-	},
-	showBg: function($target) {
-		// $target.find('#js-chronology-bg').animate({opacity:'hide'},{duration:400});
-		// $target.find('#js-chronology-bg').css('opacity','1');
-	}
-};
-
-// ユーザーガイド
-var showUserGuide = {
-	init: function(){
-		this.bindEvent();
-	},
-	bindEvent: function(){
-		var self = this;
-		var scrollPos;
-		var footerPos;
-
-		$(window).scroll(function(){
-			self.scrollPos = $(window).scrollTop();
-			self.footerPos = $('footer').offset().top;
-			if(self.scrollPos+$(window).height() > $('footer').offset().top){
-				self.show();
-			} else {
-				self.hide();
-			}
-		});
-	},
-	show: function(){
-		$('#js-userguide-pc').animate({opacity:'show'},{duration:400});
-		$('#js-userguide-sp').animate({opacity:'show'},{duration:400});
-	},
-	hide: function(){
-		$('#js-userguide-pc').animate({opacity:'hide'},{duration:400});
-		$('#js-userguide-sp').animate({opacity:'hide'},{duration:400});
-	},
-	swipe: function(){
-		$('#js-userguide-sp').animate({
-			'left': '80%'
-		},{
-			'duration': 1500,
-			'easing': 'ease',
-			'complete': function(){
-				alert('終わりました');
-			}
-		});
 	}
 };
 
@@ -180,7 +133,7 @@ var scrollFadein = {
 	}
 }
 
-
+// Slackへ送信
 var sendLetter = {
 	init: function () {
 		this.bindEvent();
@@ -213,10 +166,9 @@ var sendLetter = {
 }
 
 $(function(){
-	// showTutorial.init();
+	showTutorial.init();
 	accordionChronology.init();
 	introductionHover.init();
-	showUserGuide.init();
 	dispatchArrow.init();
 	scrollFadein.init();
 	sendLetter.init();
