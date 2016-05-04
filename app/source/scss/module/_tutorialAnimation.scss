@@ -1,0 +1,119 @@
+body {
+	.tutorial {
+		display: none;
+	}
+	&.is-first {
+		width: 100vw;
+		height: 100vh;
+		overflow: hidden;
+		.tutorial {
+			display: inline-block;
+			width: 100vw;
+			height: 100vh;
+			background-color: rgba(255, 255, 255, .95);
+			position: fixed;
+			z-index: 10000;
+			.tutorial-inner {
+				width: 100%;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				text-align: center;
+			}
+			.tutorial-pc {
+				.tutorial-key {
+					background-color: white;
+					border: solid $blue 4px;
+					border-radius: 8px;
+					box-shadow: 0 5px 0 $blue;
+					margin: 7px 2px;
+					width: 64px;
+					height: 32px;
+				}
+				.tutorial-key-upper {
+					margin: 0 auto;
+				}
+				.tutorial-key-lower {
+					margin: 0 auto;
+					display: inline-block;
+					div {
+						float: left;
+					}
+				}
+				.key-top {
+					background: url('../images/common/tutorial-key-top.png') center center no-repeat;
+				}
+				.key-bottom {
+					background: url('../images/common/tutorial-key-bottom.png') center center no-repeat;
+				}
+				.key-right {
+					background: url('../images/common/tutorial-key-right.png') center center no-repeat;
+					animation-duration: 1.2s;
+					animation-iteration-count: infinite;
+					animation-name: blinkKeyRight;
+					transform: translateY(0);
+					box-shadow: 0 5px 0 $blue;
+					@keyframes blinkKeyRight {
+						0% {
+							box-shadow: 0 5px 0 $blue;
+							transform: translateY(0);
+						}
+						25% {
+							box-shadow: 0 0 0 $blue;
+							transform: translateY(5px);
+						}
+						50% {
+							box-shadow: 0 5px 0 $blue;
+							transform: translateY(0);
+						}
+					}
+				}
+				.key-left {
+					background: url('../images/common/tutorial-key-left.png') center center no-repeat;
+					animation-duration: 1.2s;
+					animation-iteration-count: infinite;
+					animation-name: blinkKeyLeft;
+					transform: translateY(0);
+					box-shadow: 0 5px 0 $blue;
+					@keyframes blinkKeyLeft {
+						50% {
+							box-shadow: 0 5px 0 $blue;
+							transform: translateY(0);
+						}
+						75% {
+							box-shadow: 0 0 0 $blue;
+							transform: translateY(5px);
+						}
+						100% {
+							box-shadow: 0 5px 0 $blue;
+							transform: translateY(0);
+						}
+					}
+				}
+			}
+			.tutorial-sp {
+				background: url('../images/common/sp-arrow.png') no-repeat top center;				
+				.tutorial-hand {
+					animation-duration: 3s;
+					animation-iteration-count: infinite;
+					animation-name: slideHand;
+					position: relative;
+					left: -35px;
+					@keyframes slideHand {
+						0% {
+							left: -35px;
+						}
+						30% {
+							left: 75px;
+						}
+						60% {
+							left: -35px;
+						}
+					}
+				}
+
+			}
+		}
+	}
+}

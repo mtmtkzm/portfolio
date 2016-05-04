@@ -131,10 +131,6 @@ main {
   visibility: visible;
 }
 
-#js-cjronology-bg {
-  display: none;
-}
-
 #js-tutorial {
   display: none;
 }
@@ -822,4 +818,201 @@ h3 {
 
 .MT20 {
   margin-top: 20px;
+}
+
+body .tutorial {
+  display: none;
+}
+
+body.is-first {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body.is-first .tutorial {
+  display: inline-block;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.95);
+  position: fixed;
+  z-index: 10000;
+}
+
+body.is-first .tutorial .tutorial-inner {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+body.is-first .tutorial .tutorial-pc .tutorial-key {
+  background-color: white;
+  border: solid #2F305D 4px;
+  border-radius: 8px;
+  box-shadow: 0 5px 0 #2F305D;
+  margin: 7px 2px;
+  width: 64px;
+  height: 32px;
+}
+
+body.is-first .tutorial .tutorial-pc .tutorial-key-upper {
+  margin: 0 auto;
+}
+
+body.is-first .tutorial .tutorial-pc .tutorial-key-lower {
+  margin: 0 auto;
+  display: inline-block;
+}
+
+body.is-first .tutorial .tutorial-pc .tutorial-key-lower div {
+  float: left;
+}
+
+body.is-first .tutorial .tutorial-pc .key-top {
+  background: url("../images/common/tutorial-key-top.png") center center no-repeat;
+}
+
+body.is-first .tutorial .tutorial-pc .key-bottom {
+  background: url("../images/common/tutorial-key-bottom.png") center center no-repeat;
+}
+
+body.is-first .tutorial .tutorial-pc .key-right {
+  background: url("../images/common/tutorial-key-right.png") center center no-repeat;
+  -webkit-animation-duration: 1.2s;
+  animation-duration: 1.2s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: blinkKeyRight;
+  animation-name: blinkKeyRight;
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  box-shadow: 0 5px 0 #2F305D;
+}
+
+@-webkit-keyframes blinkKeyRight {
+  0% {
+    box-shadow: 0 5px 0 #2F305D;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  25% {
+    box-shadow: 0 0 0 #2F305D;
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
+  }
+  50% {
+    box-shadow: 0 5px 0 #2F305D;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes blinkKeyRight {
+  0% {
+    box-shadow: 0 5px 0 #2F305D;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  25% {
+    box-shadow: 0 0 0 #2F305D;
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
+  }
+  50% {
+    box-shadow: 0 5px 0 #2F305D;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+body.is-first .tutorial .tutorial-pc .key-left {
+  background: url("../images/common/tutorial-key-left.png") center center no-repeat;
+  -webkit-animation-duration: 1.2s;
+  animation-duration: 1.2s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: blinkKeyLeft;
+  animation-name: blinkKeyLeft;
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  box-shadow: 0 5px 0 #2F305D;
+}
+
+@-webkit-keyframes blinkKeyLeft {
+  50% {
+    box-shadow: 0 5px 0 #2F305D;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  75% {
+    box-shadow: 0 0 0 #2F305D;
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
+  }
+  100% {
+    box-shadow: 0 5px 0 #2F305D;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes blinkKeyLeft {
+  50% {
+    box-shadow: 0 5px 0 #2F305D;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  75% {
+    box-shadow: 0 0 0 #2F305D;
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
+  }
+  100% {
+    box-shadow: 0 5px 0 #2F305D;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+body.is-first .tutorial .tutorial-sp {
+  background: url("../images/common/sp-arrow.png") no-repeat top center;
+}
+
+body.is-first .tutorial .tutorial-sp .tutorial-hand {
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: slideHand;
+  animation-name: slideHand;
+  position: relative;
+  left: -35px;
+}
+
+@-webkit-keyframes slideHand {
+  0% {
+    left: -35px;
+  }
+  30% {
+    left: 75px;
+  }
+  60% {
+    left: -35px;
+  }
+}
+
+@keyframes slideHand {
+  0% {
+    left: -35px;
+  }
+  30% {
+    left: 75px;
+  }
+  60% {
+    left: -35px;
+  }
 }

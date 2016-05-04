@@ -30,7 +30,7 @@
 	<link rel='stylesheet' href='./css/swiper.min.css'>
 	<script src="./js/swiper.min.js"></script>
 </head>
-<body>
+<body class="is-first">
 	<div id="fb-root"></div>
 	<script>
 		(function(d, s, id) {
@@ -43,15 +43,17 @@
 	</script>
 	<div class="tutorial" id="tutorial">
 		<div class="tutorial-inner">
-			<p>ライダーのポートフォリオサイト</p>
-			<p>Welcome to my Portfolio site!</p>
-			<h1 class="">MTMTKZM.com</h1>
-			<div class="no-pc">
-				<img src="" alt="SP/TB用のUG">
+			<div class="tutorial-sp no-pc">
+				<img class="tutorial-hand" src="./images/common/sp-hand.png" alt="">
 			</div>
-			<div class="no-sp no-tb">
-				<img src="" alt="PC用のUG">
-			</div>			
+			<div class="tutorial-pc no-sp no-tb">
+				<div class="tutorial-key-upper tutorial-key key-top"></div>
+				<div class="tutorial-key-lower clearfix">
+					<div class="tutorial-key key-left"></div>
+					<div class="tutorial-key key-bottom"></div>
+					<div class="tutorial-key key-right"></div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<% include _header %>

@@ -13,10 +13,6 @@ var showTutorial = {
 		} else {
 			$('body').removeClass('is-first');
 		}
-		// デバック用 ヘッダークリックでcookie削除
-		$('header').on('click', function() {
-			self.removeCookie();
-		})
 	},
 	removeCookie: function() {
 		$.removeCookie('access');
