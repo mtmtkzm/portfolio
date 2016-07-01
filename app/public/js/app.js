@@ -102,7 +102,7 @@ var scrollFadein = {
 	},
 	bindEvent: function(){
 		var self = this;
-		$(window).scroll(function(){
+		$(window).on('load scroll',function(){
 			var windowHeight = $(window).height();
 			var topWindow = $(window).scrollTop();
 			$('.js-fadein').each(function(){
