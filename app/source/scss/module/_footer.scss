@@ -56,6 +56,11 @@ footer {
 				margin-top: 5px;
 				background-image: url('../images/common/tw.png');
 			}
+			&.github a {
+				width: 32px;
+				height: 31px;
+				background-image: url('../images/common/gh.png');
+			}
 			&.mail a {
 				width: 37px;
 				height: 28px;
@@ -117,6 +122,16 @@ footer {
 		@include media(sp) {
 			float: none;
 			text-align: center;
+		}
+	}
+	.google_ad {
+		width: 336px;
+		height: 280px;
+		margin-left: 50px;
+		float: left;
+		background-color: gray;
+		@include media(tab) {
+			display: none;
 		}
 	}
 }

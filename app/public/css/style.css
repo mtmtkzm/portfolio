@@ -263,6 +263,12 @@ footer .social-list li.twitter a {
   background-image: url("../images/common/tw.png");
 }
 
+footer .social-list li.github a {
+  width: 32px;
+  height: 31px;
+  background-image: url("../images/common/gh.png");
+}
+
 footer .social-list li.mail a {
   width: 37px;
   height: 28px;
@@ -344,6 +350,20 @@ footer .footer-right-box {
   footer .footer-right-box {
     float: none;
     text-align: center;
+  }
+}
+
+footer .google_ad {
+  width: 336px;
+  height: 280px;
+  margin-left: 50px;
+  float: left;
+  background-color: gray;
+}
+
+@media only screen and (max-width: 1024px) {
+  footer .google_ad {
+    display: none;
   }
 }
 
