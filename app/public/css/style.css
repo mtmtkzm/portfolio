@@ -353,18 +353,8 @@ footer .footer-right-box {
   }
 }
 
-footer .google_ad {
-  width: 336px;
-  height: 280px;
-  margin-left: 50px;
-  float: left;
-  background-color: gray;
-}
-
-@media only screen and (max-width: 1024px) {
-  footer .google_ad {
-    display: none;
-  }
+footer .copyright {
+  font-family: Helvetica;
 }
 
 header {

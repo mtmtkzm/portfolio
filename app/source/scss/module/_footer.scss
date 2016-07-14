@@ -124,14 +124,7 @@ footer {
 			text-align: center;
 		}
 	}
-	.google_ad {
-		width: 336px;
-		height: 280px;
-		margin-left: 50px;
-		float: left;
-		background-color: gray;
-		@include media(tab) {
-			display: none;
-		}
+	.copyright {
+		font-family: Helvetica;
 	}
 }
