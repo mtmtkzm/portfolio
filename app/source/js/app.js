@@ -145,7 +145,7 @@ var sendLetter = {
 		if(text != '' && window.confirm('この内容で送信してよろしいですか？\n----\n'+text+'\n----')){
 			var url = 'https://slack.com/api/chat.postMessage';
 			var data = {
-				token: 'xoxp-5132180852-5132180854-26900319184-99728c69b4',
+				token: 'xoxp-5132180852-5132180854-86738660465-da28b27c12dccb9f5903804d0c79da4d',
 				channel: '#letter_box',
 				username: 'Postal worker',
 				text: text
