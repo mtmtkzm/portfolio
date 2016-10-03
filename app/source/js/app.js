@@ -1,3 +1,4 @@
+
 var showTutorial = {
 	init: function() {
 		this.bindEvent();
@@ -159,6 +160,7 @@ var sendLetter = {
 		}
 	}
 }
+
 
 $(function(){
 	showTutorial.init();
